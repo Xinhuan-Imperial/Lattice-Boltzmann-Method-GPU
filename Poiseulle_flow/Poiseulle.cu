@@ -1,18 +1,11 @@
 /**
- * Copyright by the author.  All rights reserved.
- *
- * Please refer to the author (zhouxinhuan0205@126.com or x.zhou16@ic.ac.uk)
- * with this source code for terms and conditions that govern your use of
- * this software. Any use, reproduction, disclosure, or distribution of
- * this software and related documentation is strictly prohibited.
- *
  * This software is Lattice Boltzmann Modelling for straight vessel flow using SRT model
- * based on GPU, writen by Xinhuan Zhou from Ultrasound Lab for Imaging and Sensing
+ * based on GPU, writen by Dr. Xinhuan Zhou from Ultrasound Lab for Imaging and Sensing
  * http://www.bg.ic.ac.uk/research/m.tang/ulis/
  * Boundary Condition: non-equlibrium extrapolation
  * Wall: hall-way bounce back.
  * Inlet:velocity & pressure; Outlet:velocity & pressure
- * Author: Xinhuan Zhou, PhD of Imperial College London
+ * Author: Dr. Xinhuan Zhou from Imperial College London
  * Date: 21 January 2019
  * 
 **/
@@ -948,7 +941,7 @@ int main(int argc,const char **argv) {
 	string output_direc = "./out";
 	float residual,milli,sum_current,sum_next;
 	float tol=1e-5;
-	int stag_max=20,k=0,tol_count=0,max_it=10000,time_save=200;
+	int stag_max=20,k=0,tol_count=0,max_it=10000,time_save=500;
 	string logname=output_direc+'/'+ "CONVERGENCE.log";
 	ofstream logfile(logname);	
 
