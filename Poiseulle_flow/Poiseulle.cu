@@ -941,7 +941,7 @@ int main(int argc,const char **argv) {
 	string output_direc = "./out";
 	float residual,milli,sum_current,sum_next;
 	float tol=1e-5;
-	int stag_max=20,k=0,tol_count=0,max_it=10000,time_save=500;
+	int stag_max=50,k=0,tol_count=0,max_it=10000,time_save=500;
 	string logname=output_direc+'/'+ "CONVERGENCE.log";
 	ofstream logfile(logname);	
 
@@ -998,6 +998,8 @@ int main(int argc,const char **argv) {
 		d_tmp=d_scr;
 		d_scr = d_dst;
 		d_dst=d_tmp;
+		
+		residual=abs(sum_next-sum_current)/sum_next;		
 		if(k%time_save==0){
 			cudaDeviceSynchronize();
 			cudaMemcpy(h_ux,d_ux,sizeof(float)*NLATTICE,cudaMemcpyDeviceToHost);
@@ -1007,7 +1009,6 @@ int main(int argc,const char **argv) {
 			cudaEventRecord(stop);
 			cudaEventSynchronize(stop);
 			cudaEventElapsedTime(&milli,start,stop);
-			residual=abs(sum_next-sum_current)/sum_next;
 			cout<<"ITERATION # " << k << ", collapse time: "<< milli <<" ms, residual:"<< residual<<endl;
 			logfile<<residual<<endl;
 			outputSave(output_direc,k);
