@@ -940,7 +940,7 @@ void outputSave(string output_direc,int t) {
 int main(int argc,const char **argv) {
 	string output_direc = "./out";
 	float residual,milli,sum_current,sum_next;
-	float tol=1e-5;
+	float tol=1e-6f;
 	int stag_max=50,k=0,tol_count=0,max_it=10000,time_save=500;
 	string logname=output_direc+'/'+ "CONVERGENCE.log";
 	ofstream logfile(logname);	
