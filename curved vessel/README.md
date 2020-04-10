@@ -1,0 +1,1 @@
+This folder contains codes to simulate unsteady curved vessels blood flow, with/without stenosis. You should pay special attention to preprocess.m, which generates the 3D uniform computational grids and denote each grid with an integer number from -1 to 4.
