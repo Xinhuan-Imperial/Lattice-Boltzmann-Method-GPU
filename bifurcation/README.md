@@ -2,4 +2,4 @@ The geometry is obtained from ultrasound scanning of a human carotid bifurcation
 1. MyCrustOpen --surface reconstruction from scattered surface point cloud. 
 2. smoothpatch --surface smoothing using diffusion flow algorithm. You must have C++ compiler installed to use this tool.
 
-
+Then the geometry is preprocessed to geo.txt. Inlet/Outlet velocity are in bc.txt.
