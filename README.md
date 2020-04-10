@@ -1,5 +1,5 @@
 # Lattice-Boltzmann-Method-GPU
-This program is a GPU CUDA version D3Q19 BGK Lattice Boltzmann Method Computational Fluid Dynamics solver to simulate steady/unsteady 3D single-phase flows. Compared with CPU serial code, this GPU code is more than 200 times faster and has same accuracy. To run it, a NVIDIA GPU with CUDA Toolkit is a must. It contains a lecture notes, the author's PhD thesis (Chapter 4 contains a detailed description about implementation of LBM), three Matlab tools (MyCrustOpen, fitNormal and smoothpatch) for geometry preprocessing, four simulation cases:
+This program is a GPU CUDA version D3Q19 BGK Lattice Boltzmann Method Computational Fluid Dynamics solver to simulate steady/unsteady 3D single-phase Newtonian flows, where moving boundary is NOT considered. Compared with CPU serial code, this GPU code is more than 200 times faster and has same accuracy (performance tested with NVIDIA Geforce 2080ti). To run it, a NVIDIA GPU with CUDA Toolkit is a must. It contains a lecture notes, the author's PhD thesis (Chapter 4 contains a detailed description about implementation of LBM), three Matlab tools (MyCrustOpen, fitNormal and smoothpatch) for geometry preprocessing, four simulation cases:
 
 1. Lid_driven_cavity: steady Laminar flow
 2. Poiseulle_flow: steady Laminar flow
@@ -11,7 +11,7 @@ For geometry preprecessing, it is important to generate 3D uniform grid, and the
 2. For wall grids, we use the half-way bounce back method
 3. For fluid grids, SRT LBM streaming and collision happens
 4. For outer neighbour grids of wall, those grids are only used for easier implementation of wall half-way bounce back.
-5. For not used grids, they are abondoned in function index_transform to reduce the large memory consumption.
+5. For not used grids, they are abondoned in function index_transform to reduce the large memory usage.
 
 To use the code, you must cite:
 1. The author's PhD thesis
