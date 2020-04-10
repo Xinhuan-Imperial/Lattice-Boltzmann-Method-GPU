@@ -1,5 +1,5 @@
 # Lattice-Boltzmann-Method-GPU
-This program is a GPU CUDA version D3Q19 BGK Lattice Boltzmann Method Computational Fluid Dynamics solver to simulate steady/unsteady 3D single-phase flows. Compared with CPU serial code, this GPU code is more than 200 times faster and has same accuracy. To run it, a NVIDIA GPU with CUDA Toolkit is a must. It contains a lecture notes, two Matlab tools (MyCrustOpen and smoothpatch) for geometry preprocessing, four simulation cases:
+This program is a GPU CUDA version D3Q19 BGK Lattice Boltzmann Method Computational Fluid Dynamics solver to simulate steady/unsteady 3D single-phase flows. Compared with CPU serial code, this GPU code is more than 200 times faster and has same accuracy. To run it, a NVIDIA GPU with CUDA Toolkit is a must. It contains a lecture notes, three Matlab tools (MyCrustOpen, fitNormal and smoothpatch) for geometry preprocessing, four simulation cases:
 
 1. Lid_driven_cavity: steady Laminar flow
 2. Poiseulle_flow: steady Laminar flow
