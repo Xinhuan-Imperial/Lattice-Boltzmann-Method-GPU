@@ -80,7 +80,7 @@ void geo_pre() {
 	for (int x = 0; x < NX; x++) {
 		for (int y = 1; y < NY - 1; y++) {
 			for (int z = 0; z < NZ; z++) {
-				dist = sqrt(pow(x - center_x, 2) + pow(z - center_z, 2));
+				dist = sqrt(powf(x - center_x, 2) + powf(z - center_z, 2));
 				if (dist <= radius) {
 					ind = (x / BLOCK_X + y / BLOCK_Y*bx + z / BLOCK_Z*bx*by)*BLOCK_X*BLOCK_Y*BLOCK_Z + x%BLOCK_X + y%BLOCK_Y*BLOCK_X + z%BLOCK_Z*BLOCK_X*BLOCK_Y;
 					flag[x][y][z] = 1;
@@ -298,7 +298,7 @@ void initialize() {
 			ind=(x/BLOCK_X+y/BLOCK_Y*bx+z/BLOCK_Z*bx*by)*BLOCK_X*BLOCK_Y*BLOCK_Z+x%BLOCK_X+y%BLOCK_Y*BLOCK_X+z%BLOCK_Z*BLOCK_X*BLOCK_Y;
 			idx=h_index[ind];
 			if (idx>=0) {
-				tmp=u_max*(1.0f-(pow(x-center_x,2)+pow(z-center_z,2))/pow(radius,2));
+				tmp=u_max*(1.0f-(powf(x-center_x,2)+powf(z-center_z,2))/powf(radius,2));
 				h_uy[idx] =tmp;
 			}
 		}
@@ -310,7 +310,7 @@ void initialize() {
 			ind=(x/BLOCK_X+y/BLOCK_Y*bx+z/BLOCK_Z*bx*by)*BLOCK_X*BLOCK_Y*BLOCK_Z+x%BLOCK_X+y%BLOCK_Y*BLOCK_X+z%BLOCK_Z*BLOCK_X*BLOCK_Y;
 			idx=h_index[ind];				
 			if(idx>=0){
-				tmp=u_max*(1.0f-(pow(x-center_x,2)+pow(z-center_z,2))/pow(radius,2));
+				tmp=u_max*(1.0f-(powf(x-center_x,2)+powf(z-center_z,2))/powf(radius,2));
 				h_uy[idx] = tmp;
 			}
 		}
@@ -322,7 +322,7 @@ void initialize() {
 			ind=(x/BLOCK_X+y/BLOCK_Y*bx+z/BLOCK_Z*bx*by)*BLOCK_X*BLOCK_Y*BLOCK_Z+x%BLOCK_X+y%BLOCK_Y*BLOCK_X+z%BLOCK_Z*BLOCK_X*BLOCK_Y;
 			idx=h_index[ind];				
 			if(idx>=0){
-				tmp=u_max*(1.0f-(pow(x-center_x,2)+pow(z-center_z,2))/pow(radius,2));
+				tmp=u_max*(1.0f-(powf(x-center_x,2)+powf(z-center_z,2))/powf(radius,2));
 				h_uy[idx] = tmp;
 			}
 		}
@@ -334,7 +334,7 @@ void initialize() {
 			ind=(x/BLOCK_X+y/BLOCK_Y*bx+z/BLOCK_Z*bx*by)*BLOCK_X*BLOCK_Y*BLOCK_Z+x%BLOCK_X+y%BLOCK_Y*BLOCK_X+z%BLOCK_Z*BLOCK_X*BLOCK_Y;
 			idx=h_index[ind];				
 			if(idx>=0){
-				tmp=u_max*(1.0f-(pow(x-center_x,2)+pow(z-center_z,2))/pow(radius,2));
+				tmp=u_max*(1.0f-(powf(x-center_x,2)+powf(z-center_z,2))/powf(radius,2));
 				h_uy[idx] = tmp;
 			}
 		}
@@ -594,7 +594,7 @@ __global__ void boundary_stream(int NLATTICE,float*  __restrict__ d_scr,float*  
 		j=threadIdx.y+blockIdx.y*blockDim.y;
 		k=threadIdx.z+blockIdx.z*BLOCK_Z+koff;
 		ind=(i/BLOCK_X+j/BLOCK_Y*bx+k/BLOCK_Z*bx*by)*BLOCK_X*BLOCK_Y*BLOCK_Z+i%BLOCK_X+j%BLOCK_Y*BLOCK_X+k%BLOCK_Z*BLOCK_X*BLOCK_Y;
-		uygt=u_max*(1.0f-(pow(i-(NX - 1) / 2.0f,2)+pow(k-(NZ - 1) / 2.0f,2))/pow((NX - 1) / 2.0f,2));
+		uygt=u_max*(1.0f-(powf(i-(NX - 1) / 2.0f,2.f)+powf(k-(NZ - 1) / 2.0f,2.f))/powf((NX - 1) / 2.0f,2.f));
 		geo_tmp=tex1Dfetch(d_geo_text,ind);
 		idx2=tex1Dfetch(d_index_text,ind);
 		
